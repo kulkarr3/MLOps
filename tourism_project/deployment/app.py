@@ -72,7 +72,8 @@ FEATURE_COLUMNS = [
 #
 # IMPORTANT:
 # These mappings MUST be exactly the same as the mappings
-# used while preparing the training dataset.
+# used while preparing the training dataset (LabelEncoder
+# assigns codes in alphabetical order of the category names).
 # =========================================================
 
 TYPE_OF_CONTACT_MAP = {
@@ -82,7 +83,7 @@ TYPE_OF_CONTACT_MAP = {
 
 OCCUPATION_MAP = {"Free Lancer": 0, "Large Business": 1, "Salaried": 2, "Small Business": 3}
 
-GENDER_MAP = { "Male": 1,  "Female": 0 }
+GENDER_MAP = {"Male": 1, "Female": 0}
 
 PRODUCT_PITCHED_MAP = {"Basic": 0, "Deluxe": 1, "King": 2, "Standard": 3, "Super Deluxe": 4}
 
@@ -279,45 +280,51 @@ if submitted:
     # AgeGroup
     #
     # IMPORTANT:
-    # Make sure this mapping is identical to training.
+    # Must exactly match prep.py:
+    #   pd.cut(df['Age'], bins=[0, 25, 35, 45, 55, inf],
+    #          labels=[0, 1, 2, 3, 4])
     #
-    # 0 = Young
-    # 1 = Adult
-    # 2 = MiddleAge
-    # 3 = Senior
+    # 0 = 0–25
+    # 1 = 26–35
+    # 2 = 36–45
+    # 3 = 46–55
+    # 4 = 55+
     # =====================================================
 
-    if age <= 30:
+    if age <= 25:
         age_group = 0
-    elif age <= 45:
+    elif age <= 35:
         age_group = 1
-    elif age <= 60:
+    elif age <= 45:
         age_group = 2
-    else:
+    elif age <= 55:
         age_group = 3
+    else:
+        age_group = 4
 
 
     # =====================================================
     # IncomeCategory
     #
-    # Based on the values visible in your training dataset:
+    # IMPORTANT:
+    # Must exactly match prep.py:
+    #   pd.cut(df['MonthlyIncome'], bins=[0, 15000, 25000, 35000, inf],
+    #          labels=[0, 1, 2, 3])
     #
-    # 1 = Low
-    # 2 = Medium
-    # 3 = High
-    # 4 = VeryHigh
-    #
-    # Verify this against your actual training code.
+    # 0 = 0–15000
+    # 1 = 15001–25000
+    # 2 = 25001–35000
+    # 3 = 35000+
     # =====================================================
 
-    if monthly_income <= 25000:
+    if monthly_income <= 15000:
+        income_category = 0
+    elif monthly_income <= 25000:
         income_category = 1
-    elif monthly_income <= 50000:
+    elif monthly_income <= 35000:
         income_category = 2
-    elif monthly_income <= 100000:
-        income_category = 3
     else:
-        income_category = 4
+        income_category = 3
 
 
     # =====================================================

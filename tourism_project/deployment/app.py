@@ -88,8 +88,8 @@ OCCUPATION_MAP = {
 }
 
 GENDER_MAP = {
-    "Male": 0,
-    "Female": 1
+    "Male": 1,
+    "Female": 0
 }
 
 PRODUCT_PITCHED_MAP = {

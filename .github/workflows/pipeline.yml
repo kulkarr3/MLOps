@@ -14,8 +14,8 @@ jobs:
   register-dataset:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install Dependencies
@@ -23,7 +23,7 @@ jobs:
       - name: Register Dataset
         run: python tourism_project/model_building/data_register.py
       - name: Upload Registered Dataset
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: registered-data
           path: tourism_project/data/tourism.csv
@@ -32,8 +32,8 @@ jobs:
     needs: register-dataset
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install Dependencies
@@ -41,7 +41,7 @@ jobs:
       - name: Run Data Preparation
         run: python tourism_project/model_building/prep.py
       - name: Upload Train Test Splits
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: data-splits
           path: |
@@ -54,8 +54,8 @@ jobs:
     needs: data-prep
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - name: Install Dependencies

@@ -61,7 +61,7 @@ jobs:
       - name: Install Dependencies
         run: pip install pandas numpy scikit-learn mlflow joblib
       - name: Download Train Test Splits
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: data-splits
       - name: Start MLflow Server

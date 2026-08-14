@@ -80,39 +80,15 @@ TYPE_OF_CONTACT_MAP = {
     "Self Enquiry": 1
 }
 
-OCCUPATION_MAP = {
-    "Salaried": 1,
-    "Small Business": 2,
-    "Large Business": 3,
-    "Free Lancer": 4
-}
+OCCUPATION_MAP = {"Free Lancer": 0, "Large Business": 1, "Salaried": 2, "Small Business": 3}
 
-GENDER_MAP = {
-    "Male": 1,
-    "Female": 0
-}
+GENDER_MAP = { "Male": 1,  "Female": 0 }
 
-PRODUCT_PITCHED_MAP = {
-    "Basic": 0,
-    "Standard": 1,
-    "Deluxe": 2,
-    "Super Deluxe": 3,
-    "King": 4
-}
+PRODUCT_PITCHED_MAP = {"Basic": 0, "Deluxe": 1, "King": 2, "Standard": 3, "Super Deluxe": 4}
 
-MARITAL_STATUS_MAP = {
-    "Single": 0,
-    "Married": 1,
-    "Divorced": 2
-}
+MARITAL_STATUS_MAP = {"Divorced": 0, "Married": 1, "Single": 2}
 
-DESIGNATION_MAP = {
-    "Executive": 1,
-    "Manager": 2,
-    "Senior Manager": 3,
-    "AVP": 4,
-    "VP": 5
-}
+DESIGNATION_MAP = {"AVP": 0, "Executive": 1, "Manager": 2, "Senior Manager": 3, "VP": 4}
 
 
 # =========================================================
